@@ -1,9 +1,7 @@
 class StudentsController < ApplicationController
   def index
     @students = Student.all.order({ :created_at => :desc })
-    the_id = params.fetch("path_id")
-    matching_records = Student.where({:id => the_id })
-    @student = matching_records.at(0)
+
     render({ :template => "students/index" })
   end
 
@@ -51,6 +49,6 @@ class StudentsController < ApplicationController
 
     @student.destroy
 
-    redirect_to("/students", { :notice => "Student deleted successfully."} )
+    redirect_to("/students")
   end
 end
