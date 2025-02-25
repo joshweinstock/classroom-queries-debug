@@ -15,9 +15,9 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new
-    @student.first_name = params.fetch("query_first_name")
-    @student.last_name = params.fetch("query_last_name")
-    @student.email = params.fetch("query_email")
+    @student.first_name = params.fetch("first_name")
+    @student.last_name = params.fetch("last_name")
+    @student.email = params.fetch("email")
 
     if @student.valid?
       @student.save
@@ -30,10 +30,9 @@ class StudentsController < ApplicationController
   def update
     the_id = params.fetch("path_id")
     @student = Student.where({ :id => the_id }).at(0)
-
-    @student.first_name = params.fetch("query_first_name")
-    @student.last_name = params.fetch("query_last_name")
-    @student.email = params.fetch("query_email")
+    @student.first_name = params.fetch("first_name")
+    @student.last_name = params.fetch("last_name")
+    @student.email = params.fetch("email")
 
     if @student.valid?
       @student.save

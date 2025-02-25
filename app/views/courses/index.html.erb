@@ -10,7 +10,7 @@
       Title
     </label>
 
-    <input type="text" id="title_box" name="q_title">
+    <input type="text" id="title_box" name="title">
   </div>
 
   <div>
@@ -18,7 +18,7 @@
       Term offered
     </label>
 
-    <input type="text" id="term_offered_box" name="query_term">
+    <input type="text" id="term_offered_box" name="term_offered">
   </div>
 
   <div>
@@ -26,7 +26,7 @@
       Department
     </label>
 
-    <select id="department_id_box" name="query_department_id">
+    <select id="department_id_box" name="department_id">
       <% Department.order({ :name => :asc }).each do |a_department| %>
         <option value="<%= a_department.id %>">
           <%= a_department.name %>

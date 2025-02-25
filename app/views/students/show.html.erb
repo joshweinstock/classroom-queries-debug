@@ -9,7 +9,7 @@
 </div>
 
 <div>
-  <a href="/delete_student/<%= student.id %>">
+  <a href="/delete_student/<%= @student.id %>">
     Delete student
   </a>
 </div>
@@ -22,7 +22,7 @@
       Email
     </label>
 
-    <input type="text" id="email_box" name="query_email" value="<%= @student.email %>">
+    <input type="text" id="email_box" name="email" value="<%= @student.email %>">
   </div>
 
   <div>
@@ -30,7 +30,7 @@
       First name
     </label>
 
-    <input type="text" id="first_name_box" name="query_first_name" value="<%= @student.first_name %>">
+    <input type="text" id="first_name_box" name="first_name" value="<%= @student.first_name %>">
   </div>
 
   <div>
@@ -38,7 +38,7 @@
       Last name
     </label>
 
-    <input type="text" id="last_name_box" name="query_last_name" value="<%= @student.last_name %>">
+    <input type="text" id="last_name_box" name="last_name" value="<%= @student.last_name %>">
   </div>
 
   <button>
@@ -101,9 +101,9 @@
 <hr>
 
 <ul>
-  <% enrollments = Enrollment.where({:student_id => student.id }) %>
+  <% enrollments = Enrollment.where({:student_id => @student.id }) %>
   <% enrollments.each do |enrollment| %>
-    <% course = course.where({ :id => enrollment.course_id }).at(0) %>
+    <% course = Course.where({ :id => enrollment.course_id }).at(0) %>
     <li>
       <a href="/courses/<%= course.id %>">
         <%= course.title %>
